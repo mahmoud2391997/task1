@@ -1,34 +1,22 @@
-import React from "react";
+import * as React from "react"
 
-interface CheckboxIconProps {
-  checked?: boolean;
-  onClick?: (e: React.MouseEvent) => void;
-}
+export const CheckboxIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="20" height="20" rx="4" fill="#007AFF"/>
+    <path d="M15 7L8.125 15L5 11.6364" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 
-export const CheckboxIcon = ({ checked = false, onClick }: CheckboxIconProps): JSX.Element => {
-  return (
-    <div
-      onClick={onClick}
-      className={`w-[23px] h-[23px] rounded flex items-center justify-center cursor-pointer transition-all ${
-        checked ? "bg-white border-2 border-[#CDCDCD]" : "bg-white border border-[#CDCDCD]"
-      }`}
-    >
-      {checked && (
-        <svg
-          width="14"
-          height="10"
-          viewBox="0 0 14 10"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13.2222 0.777778L9.31111 4.68889L5.4 8.6L0.777778 4.33333"
-            stroke="#333333"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      )}
-    </div>
-  );
-};
+export const UncheckedIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="19" height="19" rx="3.5" fill="white" stroke="#D1D5DB"/>
+  </svg>
+)
+
+export const MenuIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="10" cy="10" r="2" fill="#9CA3AF"/>
+    <circle cx="16" cy="10" r="2" fill="#9CA3AF"/>
+    <circle cx="4" cy="10" r="2" fill="#9CA3AF"/>
+  </svg>
+)
