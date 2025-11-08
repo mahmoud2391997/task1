@@ -9,15 +9,9 @@ export const CheckboxIcon = ({ checked = false, onClick }: CheckboxIconProps): J
   return (
     <div
       onClick={onClick}
-      className="w-[23px] h-[23px] rounded cursor-pointer transition-all hover:bg-gray-100"
-      style={{
-        backgroundColor: checked ? "#ffffff" : "#ffffff",
-        border: checked ? "2px solid #CDCDCD" : "1px solid #CDCDCD",
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      className={`w-[23px] h-[23px] rounded flex items-center justify-center cursor-pointer transition-all ${
+        checked ? "bg-white border-2 border-[#CDCDCD]" : "bg-white border border-[#CDCDCD]"
+      }`}
     >
       {checked && (
         <svg
