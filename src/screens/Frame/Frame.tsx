@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { ScrollArea } from "../../components/ui/scroll-area";
@@ -14,6 +14,20 @@ const pages = [
 ];
 
 export const Frame = (): JSX.Element => {
+  const [selectedPages, setSelectedPages] = useState<Set<number>>(new Set());
+
+  const togglePage = (pageId: number) => {
+    setSelectedPages((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(pageId)) {
+        newSet.delete(pageId);
+      } else {
+        newSet.add(pageId);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <div className="bg-[#ffffff] w-full min-w-[578px] min-h-[794px] flex items-start justify-center pt-[85px]">
       <Card className="w-[370px] bg-[#ffffff] rounded-md border border-solid border-[#eeeeee] shadow-[0px_8px_15px_#1414141f,0px_0px_4px_#1414141a]">
@@ -46,10 +60,20 @@ export const Frame = (): JSX.Element => {
                 {pages.map((page, index) => (
                   <div
                     key={page.id}
+                    onClick={() => togglePage(page.id)}
                     className="flex w-full h-[42px] items-center justify-between pl-[22px] pr-[15px] py-2 bg-white cursor-pointer hover:bg-list-itemgray-active"
                   >
-                    <div className="[font-family:'Montserrat',Helvetica] font-normal text-website-colorblack text-sm tracking-[0] leading-[18.2px]">
-                      {page.name}
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedPages.has(page.id)}
+                        onChange={() => togglePage(page.id)}
+                        className="w-4 h-4 cursor-pointer accent-website-colororange"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <div className="[font-family:'Montserrat',Helvetica] font-normal text-website-colorblack text-sm tracking-[0] leading-[18.2px]">
+                        {page.name}
+                      </div>
                     </div>
                     <div className="relative w-[35px] h-[35px]">
                       <img
