@@ -54,11 +54,11 @@ export const Frame = (): JSX.Element => {
                     onClick={() => togglePage(page.id)}
                     className="flex w-full h-[42px] items-center justify-between pl-[22px] pr-[15px] py-2 bg-white cursor-pointer hover:bg-list-itemgray-active"
                   >
-                    <CheckboxIcon checked={selectedPages.has(page.id)} />
+                    <MenuIcon />
                     <div className="flex-1 ml-3 [font-family:'Montserrat',Helvetica] font-normal text-website-colorblack text-sm tracking-[0] leading-[18.2px]">
                       {page.name}
                     </div>
-                    <MenuIcon />
+                    <CheckboxIcon checked={selectedPages.has(page.id)} />
                   </div>
                 ))}
               </div>
