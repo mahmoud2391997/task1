@@ -38,7 +38,7 @@ export const Frame = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-white w-full min-h-screen flex flex-col items-center justify-start pt-[85px] space-y-6">
+    <div className="bg-white w-full min-h-screen flex flex-col items-center justify-start pt-[85px] space-y-8">
       {/* === 1️⃣ Main Card Section === */}
       <Card className="w-[370px] bg-white rounded-md border border-[#eeeeee] shadow-[0px_8px_15px_#1414141f,0px_0px_4px_#1414141a]">
         <CardContent className="p-0">
@@ -51,7 +51,7 @@ export const Frame = (): JSX.Element => {
               <MenuIcon />
             </div>
 
-            <Separator className="mx-[15px] my-2.5" />
+            <Separator className="mx-[15px] my-2.5 max-w-[340px]" />
 
             {/* Pages Scroll List */}
             <ScrollArea className="h-[164px] w-full">
@@ -71,7 +71,7 @@ export const Frame = (): JSX.Element => {
               </div>
             </ScrollArea>
 
-            <Separator className="mx-[15px] my-2.5" />
+            <Separator className="mx-[15px] my-2.5 max-w-[340px]"/>
 
             {/* Done Button */}
             <div className="flex flex-col items-start px-[15px] py-2.5 bg-white">
