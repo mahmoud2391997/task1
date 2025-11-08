@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { ScrollArea } from "../../components/ui/scroll-area";
 import { Separator } from "../../components/ui/separator";
+import { CheckboxIcon } from "../../components/ui/checkbox-icon";
+import { MenuIcon } from "../../components/ui/menu-icon";
 
 const pages = [
   { id: 1, name: "Page 1" },
@@ -14,19 +16,6 @@ const pages = [
 ];
 
 export const Frame = (): JSX.Element => {
-  const [selectedPages, setSelectedPages] = useState<Set<number>>(new Set());
-
-  const togglePage = (pageId: number) => {
-    setSelectedPages((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(pageId)) {
-        newSet.delete(pageId);
-      } else {
-        newSet.add(pageId);
-      }
-      return newSet;
-    });
-  };
 
   return (
     <div className="bg-[#ffffff] w-full min-w-[578px] min-h-[794px] flex items-start justify-center pt-[85px]">
@@ -37,18 +26,7 @@ export const Frame = (): JSX.Element => {
               <div className="[font-family:'Montserrat',Helvetica] font-normal text-website-colorblack text-sm tracking-[0] leading-[18.2px]">
                 All pages
               </div>
-              <div className="relative w-[35px] h-[35px]">
-                <img
-                  className="absolute w-[34.29%] h-[21.55%] top-[36.43%] left-[32.14%]"
-                  alt="Vector"
-                  src="/vector-128.svg"
-                />
-                <img
-                  className="absolute w-[65.71%] h-[65.71%] top-[18.57%] left-[17.14%]"
-                  alt="Desktop"
-                  src="/desktop.svg"
-                />
-              </div>
+              <MenuIcon />
             </div>
 
             <div className="flex items-start px-[15px] py-2.5">
@@ -60,33 +38,12 @@ export const Frame = (): JSX.Element => {
                 {pages.map((page, index) => (
                   <div
                     key={page.id}
-                    onClick={() => togglePage(page.id)}
                     className="flex w-full h-[42px] items-center justify-between pl-[22px] pr-[15px] py-2 bg-white cursor-pointer hover:bg-list-itemgray-active"
                   >
-                    <div className="flex items-center gap-3">
-                      <input
-                        type="checkbox"
-                        checked={selectedPages.has(page.id)}
-                        onChange={() => togglePage(page.id)}
-                        className="w-4 h-4 cursor-pointer accent-website-colororange"
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                      <div className="[font-family:'Montserrat',Helvetica] font-normal text-website-colorblack text-sm tracking-[0] leading-[18.2px]">
-                        {page.name}
-                      </div>
+                    <div className="[font-family:'Montserrat',Helvetica] font-normal text-website-colorblack text-sm tracking-[0] leading-[18.2px]">
+                      {page.name}
                     </div>
-                    <div className="relative w-[35px] h-[35px]">
-                      <img
-                        className="absolute w-[34.29%] h-[21.55%] top-[38.57%] left-[34.29%]"
-                        alt="Vector"
-                        src="/vector-128.svg"
-                      />
-                      <img
-                        className="absolute w-[65.71%] h-[65.71%] top-[18.57%] left-[17.14%]"
-                        alt="Desktop"
-                        src="/desktop.svg"
-                      />
-                    </div>
+                    <MenuIcon />
                   </div>
                 ))}
               </div>
